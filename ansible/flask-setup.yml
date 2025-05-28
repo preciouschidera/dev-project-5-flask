@@ -1,0 +1,64 @@
+---
+- name: Setup Flask Monitoring Dashboard
+  hosts: flask
+  become: true
+
+  tasks:
+    - name: Update APT and install dependencies
+      apt:
+        update_cache: yes
+        name:
+          - python3-pip
+          - nginx
+        state: present
+
+    - name: Install Python packages
+      pip:
+        name:
+          - flask
+          - gunicorn
+
+    - name: Create app directory
+      file:
+        path: /home/ubuntu/app
+        state: directory
+        owner: ubuntu
+        group: ubuntu
+        mode: '0755'
+
+    - name: Copy Flask app
+      copy:
+        src: ../app/app.py
+        dest: /home/ubuntu/app/app.py
+        owner: ubuntu
+        group: ubuntu
+        mode: '0644'
+
+    - name: Copy Gunicorn service file
+      copy:
+        src: ../gunicorn.service
+        dest: /etc/systemd/system/gunicorn.service
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Enable and start Gunicorn
+      systemd:
+        name: gunicorn
+        enabled: yes
+        state: started
+        daemon_reload: yes
+
+    - name: Configure Nginx
+      copy:
+        src: ../nginx-default
+        dest: /etc/nginx/sites-available/default
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: Restart Nginx
+      service:
+        name: nginx
+        state: restarted
+
