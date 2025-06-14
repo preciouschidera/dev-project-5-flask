@@ -1,4 +1,5 @@
 from flask import Flask
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -8,43 +9,39 @@ def home():
     <html lang="en">
     <head>
       <meta charset="UTF-8">
-      <title>DevOps Journey Dashboard</title>
+      <title>Skill Shift Tech Training</title>
       <style>
         body {
-          background: linear-gradient(to bottom, #3a0ca3, #2f2f2f);
-          color: #ffffff;
+          background-color: #121212;
+          color: #e6e6e6;
           font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          padding: 60px;
           text-align: center;
-          animation: fadeIn 2s ease-in;
+          padding: 2em;
+          animation: fadeIn 1s ease-in-out;
         }
 
         h1 {
-          font-size: 3.2em;
+          color: #00ffff;
+          font-size: 2.5em;
           margin-bottom: 0.3em;
-          color: #e0d7ff;
         }
 
         .tagline {
-          font-size: 1.7em;
-          margin-bottom: 2em;
-          color: #c2b8ff;
-          animation: pulse 2s infinite alternate;
+          font-size: 1.2em;
+          color: #ffd700;
+          margin-bottom: 1em;
         }
 
         .panel {
-          background-color: #4b0082;
-          padding: 25px;
+          background-color: #1e1e1e;
+          padding: 2em;
           border-radius: 12px;
-          box-shadow: 0 0 20px rgba(0,0,0,0.3);
-          margin: 30px auto;
-          max-width: 650px;
+          margin-top: 1.5em;
+          box-shadow: 0 0 10px #00ffff44;
         }
 
         .panel p {
-          font-size: 1.2em;
-          margin: 10px 0;
-          color: #f2f2f2;
+          margin: 0.5em 0;
         }
 
         .shoutout {
@@ -60,6 +57,30 @@ def home():
           font-style: italic;
         }
 
+        .cta {
+          margin-top: 2em;
+        }
+
+        .register-button {
+          background-color: #00ffff;
+          color: #121212;
+          padding: 0.8em 1.5em;
+          font-size: 1.2em;
+          font-weight: bold;
+          text-decoration: none;
+          border-radius: 10px;
+          transition: all 0.3s ease-in-out;
+          box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff80;
+          animation: pulse 2s infinite alternate;
+        }
+
+        .register-button:hover {
+          background-color: #ffd700;
+          color: #000;
+          box-shadow: 0 0 15px #ffd700, 0 0 25px #ffd70080;
+          transform: scale(1.05);
+        }
+
         @keyframes fadeIn {
           from { opacity: 0; transform: scale(0.95); }
           to { opacity: 1; transform: scale(1); }
@@ -73,22 +94,29 @@ def home():
     </head>
     <body>
 
-      <h1>🚀 Flask App Successfully Deployed</h1>
-      <div class="tagline">I’m going to be a GREAT DevOps Engineer in the UK 🇬🇧</div>
+      <h1>🚀 Skill Shift Tech Training Program</h1>
+      <div class="tagline">Take the first step towards a brighter tech future 🌍</div>
 
-      <div class="panel">
-        <p>Powered by Flask ⚙️</p>
-        <p>Deployed with Gunicorn + NGINX</p>
-        <p>Automated using Ansible on AWS EC2 💻</p>
-        <p>This is my DevOps journey — from Lagos to London.</p>
+      <div class="cta">
+        <a href="#" class="register-button">🚀 Register Now</a>
       </div>
 
-      <p class="shoutout">God help me, na die I dey with this DevOps </p>
-      <p class="shoutout">THANK YOU CYNTHIA FOR EVERYTHING 💜</p>
+      <div class="panel">
+        <p>📊 Data Analysis &nbsp;&nbsp; ☁️ Azure Cloud &nbsp;&nbsp; 🛠️ DevOps with AWS</p>
+        <p>🔒 Cybersecurity &nbsp;&nbsp; 🌐 Web Development</p>
+        <p>Real training, no cost — just growth. 💡</p>
+        <p>Powered by Flask ⚙️ | Deployed on AWS EC2 | Automated with Ansible</p>
+      </div>
 
-      <div class="credit">— Built by Precious Chidera | Lagos born, UK made 🌍</div>
+      <p class="shoutout">Join us and transform your tech career. Learn. Build. Grow. 💪</p>
+      <p class="shoutout">THANK YOU SHIFT SKILL & CYNTHIA 💜</p>
+
+      <div class="credit">— Built by Precious Chidera</div>
 
     </body>
     </html>
     """
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
 
