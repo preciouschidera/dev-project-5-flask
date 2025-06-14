@@ -1,0 +1,97 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>SkillShift | Flask App</title>
+      <style>
+        body {
+          background: linear-gradient(to right, #1e3c72, #2a5298);
+          color: white;
+          font-family: 'Segoe UI', sans-serif;
+          text-align: center;
+          padding: 5%;
+          animation: fadeIn 2s ease-in;
+        }
+
+        h1 {
+          font-size: 2.8em;
+          margin-bottom: 0.3em;
+        }
+
+        .tagline {
+          font-size: 1.5em;
+          color: #f0f0f0;
+          margin-bottom: 1.5em;
+        }
+
+        .panel {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 2em;
+          border-radius: 12px;
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+          width: 60%;
+          margin: 0 auto 2em auto;
+        }
+
+        .shoutout {
+          font-size: 1.3em;
+          margin-top: 1.5em;
+          color: #ffb3ff;
+        }
+
+        .credit {
+          margin-top: 2em;
+          font-size: 1em;
+          color: #cccccc;
+          font-style: italic;
+        }
+
+        .cta-button {
+          margin-top: 2em;
+          background-color: #ff4ddb;
+          color: white;
+          padding: 0.8em 2em;
+          border: none;
+          border-radius: 5px;
+          font-size: 1.1em;
+          cursor: pointer;
+          transition: background 0.3s ease-in-out;
+        }
+
+        .cta-button:hover {
+          background-color: #ff1fbb;
+        }
+
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+      </style>
+    </head>
+    <body>
+
+      <h1>🚀 SkillShift Training Registration Open!</h1>
+      <div class="tagline">Take the first step toward a brighter tech future 🌟</div>
+
+      <div class="panel">
+        <p>💻 Data Analysis • Azure Cloud • AWS DevOps • Cybersecurity • Web Dev</p>
+        <p>🔥 Real training. No cost. Just growth.</p>
+        <p>🚀 Automated with Ansible, served via NGINX + Gunicorn</p>
+        <p>📍 Deployed on AWS EC2 — powered by Flask</p>
+      </div>
+
+      <p class="shoutout">Thank you SkillShift / Ceyit Solutions 💜</p>
+      <button class="cta-button" onclick="window.open('https://join.shiftskill', '_blank')">Register Now</button>
+
+      <div class="credit">— Built by Precious Chidera</div>
+
+    </body>
+    </html>
+    """
+
